@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="tr" data-tema="oto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paso a Paso</title>
+  <meta name="description" content="Sıfırdan İspanyolca: kelime, cümle, hikaye ve günlük tekrar">
+  <meta name="theme-color" content="#F4EFE6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Paso a Paso">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="simge-192.png">
+  <link rel="apple-touch-icon" href="simge-180.png">
+  <script>
+    // Tema, sayfa cizilmeden once uygulansin (beyaz parlama olmasin)
+    try { document.documentElement.dataset.tema = JSON.parse(localStorage.getItem("pasoapaso-v1") || "{}").tema || "oto"; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <main id="ekran"></main>
+
+  <nav id="menu">
+    <button data-sekme="bugun"><span>🌱</span>Bugün</button>
+    <button data-sekme="kelime"><span>🃏</span>Kelime</button>
+    <button data-sekme="cumle"><span>💬</span>Cümle</button>
+    <button data-sekme="hikaye"><span>📚</span>Hikaye</button>
+    <button data-sekme="sozluk"><span>📖</span>Sözlük</button>
+  </nav>
+
+  <script src="veri.js"></script>
+  <script src="ek.js"></script>
+  <script src="ses/liste.js"></script>
+  <script src="uygulama.js"></script>
+</body>
+</html>
