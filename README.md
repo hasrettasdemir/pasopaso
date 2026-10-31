@@ -6,7 +6,10 @@ Kelimeyi öğrendikçe sorular zorlaşır: önce seçmeli, sonra dinleme, yazma 
 Bütün sesler uygulamanın içinde; telefonda internetsiz çalışır, ilerleme telefonda saklanır.
 **Harici bağımlılık yok.** Sadece HTML ve JavaScript. Bilgisayarda denemek ve ses üretmek için Python 3 yeterli.
 
-Yayında: **https://pasopasospanish.netlify.app**
+Yayında: **https://hasrettasdemir.github.io/pasopaso/** (GitHub Pages, depo: `hasrettasdemir/pasopaso`)
+
+Eski adresler: `pasopasospanish.netlify.app` (Netlify ücretsiz kredisi bitti, eski sürümde kaldı),
+`pasopaso.pages.dev` (Cloudflare Pages; **pages.dev Türkiye'de erişime kapalı**, kullanılmıyor).
 
 ## Kurulum
 ```bash
@@ -18,6 +21,7 @@ Sonra tarayıcıda `http://localhost:8765` adresini aç. Telefona kurmak için [
 | komut | ne yapar |
 |---|---|
 | `./calistir.sh` | uygulamayı bilgisayarda açar (http://localhost:8765) |
+| `./yayinla.sh` | **siteyi günceller**: eksik sesleri üretir, `sw.js` sürümünü artırır, GitHub'a gönderir (1-2 dk'da yayında) |
 | `python3 araclar/ses-uret.py` | eksik ses dosyalarını Mac sesleriyle üretir (`ses/`). Yeni içerik ekleyince çalıştır |
 | `KAYNAK=elevenlabs SES_ID=... python3 araclar/ses-uret.py` | sesleri ElevenLabs ile üretir (`YENIDEN=1` eklersen eskilerin yerine). Karakterlere ayrı ses: `SES_ID_KADIN`, `SES_ID_ERKEK`, `SES_ID_GARSON`, `SES_ID_NINE` |
 | `python3 araclar/simge-uret.py` | uygulama simgelerini (simge-180/192/512.png) yeniden üretir |
@@ -64,4 +68,5 @@ Telefonda "hareketi azalt" açıksa animasyonlar kapanır.
   Benzerlik eşiği %60: telaffuzu kabaca kontrol eder, ince hataları yakalamaz.
 - **İlerleme sadece o telefonda.** Başka cihaza geçmez. Tarayıcı verisi silinirse ilerleme de silinir.
 - Siteye yeni sürüm yüklenince telefon bunu uygulamanın **ikinci** açılışında gösterir.
+- İlk açılışta 550 dosya telefona kaydedilir (~5 MB, internette 30-60 sn). O sürede uygulama açık kalmalı, yoksa internetsiz çalışmaz.
 - İçerik A1 seviyesinde, yalnızca şimdiki zaman. Geçmiş zaman ve A2 hikayeleri henüz yok.

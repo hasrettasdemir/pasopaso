@@ -2,17 +2,13 @@
 
 ## 1. Telefona kurmak (bir kere yapılır)
 
-Uygulamanın telefona gelebilmesi için önce internette bir adresi olması gerekiyor. En kolay ve
-ücretsiz yol **Netlify Drop**:
+Uygulamanın adresi: **https://hasrettasdemir.github.io/pasopaso/**
 
-1. Bilgisayarda tarayıcıyla **app.netlify.com/drop** adresini aç.
-2. Ücretsiz hesap aç (e-posta ile ya da Google ile). Hesap açmazsan site 1 saat sonra silinir.
-3. Finder'da `Masaüstü → Genel → Projeler` klasörünü aç.
-4. **Ispanyolca** klasörünü tutup tarayıcıdaki kutunun içine sürükle-bırak.
-5. Birkaç saniye sonra sana `https://...netlify.app` gibi bir adres verir. Bu adresi kendine mesaj at.
+İlk açılışta uygulamayı internete bağlıyken **1 dakika açık bırak**: bu sürede bütün sesler telefona kaydedilir,
+sonra internetsiz de çalışır.
 
 **iPhone'da:**
-1. Adresi **Safari** ile aç (Chrome'da bu özellik yok).
+1. Yukarıdaki adresi **Safari** ile aç (Chrome'da bu özellik yok).
 2. Alttaki **Paylaş** düğmesine bas (kare ve yukarı ok).
 3. **Ana Ekrana Ekle**'ye bas.
 4. Ana ekranda yeşil, basamaklı simge çıkar. Artık normal bir uygulama gibi açılır ve internetsiz çalışır.
@@ -67,10 +63,13 @@ Toplu taşımada ya da sessiz bir yerdeysen **Şu an konuşamıyorum**'a bas: bi
 ```
 Sırasıyla: İspanyolca (artikeliyle), Türkçe, emoji, açıklama, hatırlatıcı (hatırlatıcı yazmak zorunlu değil).
 
-Değiştirdikten sonra üç şey yap:
-1. Terminal'de `python3 araclar/ses-uret.py` yaz: yeni kelimelerin sesleri üretilir.
-2. `sw.js` dosyasında `paso-v4` gibi yazan sürüm numarasını bir artır (`paso-v5`).
-3. Klasörü Netlify'a yeniden sürükle: sitenin sayfasında **Deploys** sekmesine gir ve klasörü oraya bırak.
+Değiştirdikten sonra Terminal'de uygulamanın klasöründe şunu yaz:
+
+```
+./yayinla.sh
+```
+Bu komut eksik sesleri üretir, sürümü artırır ve siteyi günceller. 1-2 dakika sonra telefonda uygulamayı
+kapatıp iki kez açınca yeni hâli gelir. Sürükle-bırak ya da Netlify'a gerek yok.
 
 ## Bir şey ters giderse
 
