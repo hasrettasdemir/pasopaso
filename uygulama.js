@@ -10,7 +10,7 @@ const GUN = 86400000;
 const ANAHTAR = "pasoapaso-v1";
 const OVGULER = ["¡Muy bien!", "¡Perfecto!", "¡Excelente!", "¡Eso es!", "¡Genial!", "¡Fenomenal!"];
 const HIZ_SURE = 60;
-const SEVIYE_ADLARI = ["Sıfırdan başlıyorsun", "Başlangıç", "Başlangıç", "Temel", "Temel", "Temel", "A1 sonu", "A1 sonu", "A1 tamam"];
+const SEVIYE_ADI = { A1: "Başlangıç", A2: "Temel", B1: "Orta" };
 const TEMALAR = [["oto", "Otomatik"], ["krem", "Krem"], ["bulut", "Bulut"], ["nane", "Nane"], ["lavanta", "Lavanta"], ["gece", "Gece"]];
 const ZAMIR_SES = ["yo", "tú", "ella", "nosotros", "vosotros", "ellos"];
 const TORO = [
@@ -23,6 +23,7 @@ const KELIMELER = [];
 const CUMLELER = [];
 const FORMLAR = [];
 for (const u of UNITELER) {
+  u.seviye = u.seviye || "A1";
   u.k = u.kelimeler.map(([es, tr, e, a, h, g]) => {
     const o = { tur: "k", id: `k:${u.id}:${es}`, unite: u, es, tr, e, a, h, g: g || cinsiyet(es) };
     KELIMELER.push(o);
@@ -63,6 +64,10 @@ const goruldu = o => !!D.kutu[o.id];
 const zamaniGeldi = o => goruldu(o) && D.kutu[o.id].t <= Date.now();
 const kutusu = o => (D.kutu[o.id] ? D.kutu[o.id].b : 0);
 const bugunXp = () => D.gunXp[tarihStr()] || 0;
+function seviyeAdi() {
+  const n = KELIMELER.filter(goruldu).length;
+  return n === 0 ? "Sıfırdan başlıyorsun" : n < 150 ? "A1'e başladın" : n < 400 ? "A1" : n < 650 ? "A2" : n < 950 ? "B1" : "B1 tamam 🎓";
+}
 if (D.gunTarih !== tarihStr()) { D.gunTarih = tarihStr(); D.gunSayi = 0; }
 if (D.seviye == null && Object.keys(D.kutu).length) D.seviye = 0;
 if (![20, 40, 80, 120].includes(D.hedef)) D.hedef = 40;
@@ -290,7 +295,7 @@ function bugunEkrani() {
       ${hedefHalkasi()}
       <div class="hedef-bilgi">
         <b>${bugunXp() >= D.hedef ? "Günlük hedef tamam! 🎯" : "Günlük hedef"}</b>
-        <span class="alt">${D.seri ? `🔥 ${D.seri} gün seri` : "Bugün seriye başla"} · ${ogrenilen} kelime · ${SEVIYE_ADLARI[D.seviye || 0]}</span>
+        <span class="alt">${D.seri ? `🔥 ${D.seri} gün seri` : "Bugün seriye başla"} · ${ogrenilen} kelime · ${seviyeAdi()}</span>
         ${haftaSeridi()}
       </div>
     </div>
@@ -315,7 +320,8 @@ function uniteListesi(alan, eylem) {
   return `<div class="uniteler">${UNITELER.map((u, i) => {
     const ogeler = u[alan];
     const n = ogeler.filter(goruldu).length;
-    return `<button class="kart unite" data-is="${eylem}:${i}">
+    const baslik = i === 0 || UNITELER[i - 1].seviye !== u.seviye ? `<h3 class="seviye-baslik">${u.seviye} · ${SEVIYE_ADI[u.seviye]}</h3>` : "";
+    return `${baslik}<button class="kart unite" data-is="${eylem}:${i}">
       <span class="simge">${u.emoji}</span>
       <span class="bilgi"><b>${u.ad}</b><span class="alt">${n} / ${ogeler.length}</span>
         <span class="cubuk"><i style="width:${(100 * n) / ogeler.length}%"></i></span></span>
@@ -325,7 +331,7 @@ function uniteListesi(alan, eylem) {
 
 function kelimeEkrani() {
   return `<h1>Kelimeler</h1>
-    <p class="alt">Her derste 5 yeni kelime: önce görsel ve sesle tanış, sonra oyunlarla pekiştir.</p>
+    <p class="alt">A1'den B1'e ${UNITELER.length} ünite, ${KELIMELER.length} kelime. Her derste 5 yeni kelime: önce görsel ve sesle tanış, sonra oyunlarla pekiştir.</p>
     <h2>Üniteler</h2>${uniteListesi("k", "unite")}`;
 }
 
@@ -367,7 +373,7 @@ function hikayeEkrani() {
 function sozlukEkrani() {
   return `<h1>Sözlük</h1>
     <p class="alt">Bütün kelimeler. Soluk olanları henüz öğrenmedin. Dokununca okunur.</p>
-    ${UNITELER.map(u => `<h2>${u.emoji} ${u.ad}</h2><div class="kart">${u.k.map(o => {
+    ${UNITELER.map(u => `<h2>${u.emoji} ${u.ad} <span class="seviye-etiket">${u.seviye}</span></h2><div class="kart">${u.k.map(o => {
       const b = kutusu(o);
       return `<div class="kelime-satir ${goruldu(o) ? "" : "yeni"}">
         <span class="e">${gorsel(o)}</span>
@@ -426,6 +432,8 @@ const ROZETLER = [
   ["seri7", "🏆", "1 hafta", "7 gün üst üste çalış", () => D.enSeri >= 7],
   ["k50", "📚", "50 kelime", "50 kelime öğren", () => KELIMELER.filter(goruldu).length >= 50],
   ["k100", "🎓", "100 kelime", "100 kelime öğren", () => KELIMELER.filter(goruldu).length >= 100],
+  ["k500", "🏅", "500 kelime", "500 kelime öğren (A2)", () => KELIMELER.filter(goruldu).length >= 500],
+  ["k1000", "👑", "B1 ustası", "Bütün kelimeleri öğren", () => KELIMELER.filter(goruldu).length >= KELIMELER.length - 10],
   ["kusursuz", "💎", "Kusursuz", "Bir dersi hiç hata yapmadan bitir", () => D.mukemmel >= 1],
   ["hikaye", "📖", "Okur", "İlk hikayeni bitir", () => Object.keys(D.hikaye).length >= 1],
   ["masalci", "🏰", "Masalcı", "Bütün hikayeleri bitir", () => HIKAYELER.every(h => D.hikaye[h.id] != null)],
@@ -541,14 +549,18 @@ function hikayeOku(hi) {
   dersBaslat(adimlar, { hikaye: h, trGoster: {} });
 }
 
-// Seviye testi: her uniteden 2 kelime + 1 cumle. Ust uste iki unitede cogu yanlissa erken biter.
+// Seviye testi: her seviyeden (A1, A2, B1) 3 rastgele unite, her uniteden 2 kelime + 1 cumle.
+// Ust uste iki unitede cogu yanlissa erken biter.
 function seviyeTesti() {
+  const secilen = ["A1", "A2", "B1"].flatMap(s => karistir(UNITELER.filter(u => u.seviye === s)).slice(0, 3)
+    .sort((a, b) => UNITELER.indexOf(a) - UNITELER.indexOf(b)));
   const adimlar = [];
-  UNITELER.forEach((u, ui) => {
+  secilen.forEach(u => {
+    const ui = UNITELER.indexOf(u);
     karistir(u.k).slice(0, 2).forEach(o => adimlar.push({ tip: "anlam", o, test: ui }));
     adimlar.push({ tip: "bosluk", o: rastgele(u.c), test: ui });
   });
-  dersBaslat(adimlar, { test: true, puan: UNITELER.map(() => 0), zayif: 0 });
+  dersBaslat(adimlar, { test: true, puan: UNITELER.map(() => 0), zayif: 0, testUniteler: secilen });
 }
 
 function dersBaslat(adimlar, ek = {}) {
@@ -888,8 +900,9 @@ function testBitti() {
   const simdi = Date.now();
   let seviye = 0;
   const satirlar = [];
-  for (const [ui, puan] of ders.puan.entries()) {
-    const u = UNITELER[ui];
+  for (const u of ders.testUniteler) {
+    const ui = UNITELER.indexOf(u);
+    const puan = ders.puan[ui];
     const ulasti = ders.adimlar.some((a, i) => a.test === ui && i < ders.i);
     if (!ulasti) { satirlar.push(`<li>${u.emoji} ${u.ad} <span>—</span></li>`); continue; }
     // 3/3 bilinen ünite öğrenilmiş sayılır, 2 gün sonra tekrar sorulur
@@ -899,12 +912,19 @@ function testBitti() {
     }
     satirlar.push(`<li>${u.emoji} ${u.ad} <span>${puan === 3 ? "✅ biliyorsun" : puan === 2 ? "🟡 biraz" : "⬜ öğreneceğiz"}</span></li>`);
   }
+  // Bir seviyenin test edilen butun uniteleri tam bilindiyse o seviyenin tamami bilinir sayilir
+  for (const s of ["A1", "A2", "B1"]) {
+    const test = ders.testUniteler.filter(u => u.seviye === s);
+    if (test.length && test.every(u => ders.puan[UNITELER.indexOf(u)] === 3))
+      for (const u of UNITELER.filter(x => x.seviye === s)) for (const o of [...u.k, ...u.c]) if (!goruldu(o)) D.kutu[o.id] = { b: 2, t: simdi + 2 * GUN };
+  }
   D.seviye = seviye;
   kaydet();
+  const bilinen = KELIMELER.filter(goruldu).length;
   ekran.innerHTML = `<div class="bitis">
     <div class="buyuk-emoji zipla">${seviye ? "🎯" : "🌱"}</div>
-    <h1>${SEVIYE_ADLARI[seviye]}</h1>
-    <p class="alt" style="margin:8px 0 18px">${seviye ? `${seviye} üniteyi zaten biliyorsun, onları atlayıp tekrar listesine koydum.` : "Harika, en baştan, adım adım gideceğiz."}</p>
+    <h1>${seviyeAdi()}</h1>
+    <p class="alt" style="margin:8px 0 18px">${bilinen ? `${bilinen} kelimeyi zaten biliyorsun, onları atlayıp tekrar listesine koydum.` : "Harika, en baştan, adım adım gideceğiz."}</p>
     <ul class="test-sonuc kart">${satirlar.join("")}</ul>
     <button class="dugme" data-is="bitir">Başlayalım</button></div>`;
   ders = null;
@@ -1233,7 +1253,10 @@ document.getElementById("menu").addEventListener("click", e => {
 if ("speechSynthesis" in window) speechSynthesis.getVoices();
 
 // Internetsiz calisma ve verinin telefon tarafindan silinmemesi
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+  navigator.serviceWorker.ready.then(r => r.active && r.active.postMessage("sesleri-indir")).catch(() => {});
+}
 if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 
 temaUygula();

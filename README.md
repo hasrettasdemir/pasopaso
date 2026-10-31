@@ -29,17 +29,18 @@ Sonra tarayıcıda `http://localhost:8765` adresini aç. Telefona kurmak için [
 ## Dosyalar
 | dosya | ne var |
 |---|---|
-| `veri.js` | 8 ünite, 107 kelime (görsel, açıklama, hatırlatıcı), 65 cümle |
+| `veri.js` | ilk 8 A1 ünitesi: 107 kelime, 65 cümle (görsel, açıklama, hatırlatıcı) |
+| `veri-a1.js`, `veri-a2.js`, `veri-b1.js` | 44 ünite daha: A1 16, A2 14, B1 14 ünite. **Toplam 52 ünite, 998 kelime, 329 cümle** |
 | `ek.js` | 6 hikaye, 14 fiilin çekim tablosu, dokununca anlam gösteren sözlük. **Kesin JSON**: ses aracı bu dosyayı okuyor |
 | `uygulama.js` | ekranlar, 20 alıştırma tipi, akıllı tekrar, XP, rozetler |
 | `stil.css` | 6 tema: Otomatik, Krem, Bulut, Nane, Lavanta, Gece |
-| `ses/` | 539 ses dosyası + `liste.js` (ses aracı yazar, elle düzenleme) |
+| `ses/` | ~2050 ses dosyası + `liste.js` (ses aracı yazar, elle düzenleme) |
 | `sw.js` | internetsiz çalışma. İçerik değişince `SURUM` bir artırılır |
 
 ## Alıştırma türleri
 | bölüm | yöntem |
 |---|---|
-| İlk açılış | seviye testi: her üniteden 3 soru, "Bilmiyorum" seçeneği, bilinen üniteler atlanır, iki zayıf ünitede erken biter |
+| İlk açılış | seviye testi: A1, A2, B1'den 3'er rastgele ünite (ünite başına 3 soru), "Bilmiyorum" seçeneği. Bir seviyenin test edilen üniteleri tam bilinirse o seviyenin hepsi bilinir sayılır. İki zayıf ünitede erken biter |
 | Kelime | tanıtım kartı · görselden seç · anlamını seç · açıklamadan bul · dinle ve seç · harfleri diz · **yazarak cevapla** · **dikte** · **sesli söyle** · eşleştirme · hafıza |
 | Cümle | boşluk doldurma · **yazarak boşluk doldurma** · anlamını seç · kelimeleri sırala · **dikte** · **sesli söyle** |
 | Fiil çekimi | kural kartı · çekim tablosu (dokununca okunur) · doğru çekimi seç · **doğru çekimi yaz** (5 grup: -ar, -er, -ir, ser/estar, düzensizler) |
@@ -68,5 +69,6 @@ Telefonda "hareketi azalt" açıksa animasyonlar kapanır.
   Benzerlik eşiği %60: telaffuzu kabaca kontrol eder, ince hataları yakalamaz.
 - **İlerleme sadece o telefonda.** Başka cihaza geçmez. Tarayıcı verisi silinirse ilerleme de silinir.
 - Siteye yeni sürüm yüklenince telefon bunu uygulamanın **ikinci** açılışında gösterir.
-- İlk açılışta 550 dosya telefona kaydedilir (~5 MB, internette 30-60 sn). O sürede uygulama açık kalmalı, yoksa internetsiz çalışmaz.
-- İçerik A1 seviyesinde, yalnızca şimdiki zaman. Geçmiş zaman ve A2 hikayeleri henüz yok.
+- İlk açılışta uygulama dosyaları hemen, ~2000 ses dosyası (~20 MB) arka planda azar azar telefona iner. Bitene kadar internetsiz çalışırken bazı sesler telefonun kendi sesiyle okunur. Uygulama her açılışta eksik sesleri tamamlar.
+- Kelimeler B1'e kadar; hikayeler ve fiil tabloları hâlâ A1 düzeyinde (şimdiki zaman). A2/B1 hikayeleri ve geçmiş zaman tabloları henüz yok.
+- Yeni ünitelerin cümlelerindeki her kelimeye dokununca anlam çıkmayabilir (sözlük ilk 8 ünite ve hikayeler için tam).

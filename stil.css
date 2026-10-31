@@ -457,3 +457,8 @@ h2 { font-size: 19px; font-weight: 600; margin: 24px 0 10px; }
 
 /* Hareket azaltma acik telefonlarda efektler kapanir */
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* Seviye basliklari (A1 / A2 / B1) */
+.seviye-baslik { font-size: 15px; font-weight: 700; color: var(--vurgu); margin: 14px 2px 2px; letter-spacing: .3px; }
+.seviye-baslik:first-child { margin-top: 0; }
+.seviye-etiket { font-size: 12px; font-weight: 700; color: var(--vurgu); background: var(--vurgu-acik); padding: 2px 8px; border-radius: 99px; vertical-align: middle; }

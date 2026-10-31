@@ -48,7 +48,8 @@ def parcalar(cumle):
 def metinler():
     """{dosya anahtari: (metin, ses rolu)}: kelimeler, cumleler, cumle parcalari,
     fiil cekimleri ("nosotros comemos") ve hikaye satirlari ("h-kafe-3")."""
-    satirlar = re.findall(r'^\s*\["([^"]+)"', open(os.path.join(KOK, "veri.js"), encoding="utf-8").read(), re.M)
+    veri = "".join(open(os.path.join(KOK, f), encoding="utf-8").read() for f in sorted(os.listdir(KOK)) if re.match(r"veri.*\.js$", f))
+    satirlar = re.findall(r'^\s*\["([^"]+)"', veri, re.M)
     sonuc = {}
     def ekle(anahtar, metin, rol="anlatici"):
         sonuc.setdefault(anahtar, (metin, rol))
