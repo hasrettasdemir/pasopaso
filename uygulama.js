@@ -373,13 +373,14 @@ function hikayeEkrani() {
 function sozlukEkrani() {
   return `<h1>Sözlük</h1>
     <p class="alt">Bütün kelimeler. Soluk olanları henüz öğrenmedin. Dokununca okunur.</p>
-    ${UNITELER.map(u => `<h2>${u.emoji} ${u.ad} <span class="seviye-etiket">${u.seviye}</span></h2><div class="kart">${u.k.map(o => {
+    <input id="sozluk-ara" class="yazi" type="search" placeholder="🔍 Ara: İspanyolca ya da Türkçe" autocomplete="off" autocapitalize="off" spellcheck="false">
+    ${UNITELER.map(u => `<div class="sozluk-unite"><h2>${u.emoji} ${u.ad} <span class="seviye-etiket">${u.seviye}</span></h2><div class="kart">${u.k.map(o => {
       const b = kutusu(o);
-      return `<div class="kelime-satir ${goruldu(o) ? "" : "yeni"}">
+      return `<div class="kelime-satir ${goruldu(o) ? "" : "yeni"}" data-ara="${aksansiz(o.es + " " + o.tr)}">
         <span class="e">${gorsel(o)}</span>
         <span class="k"><b class="${o.g}">${o.es}</b><small>${o.tr}${goruldu(o) ? ` <span class="kutu-isareti">${"●".repeat(b)}${"○".repeat(5 - b)}</span>` : ""}</small></span>
         <button class="ses" data-is="sozses:${KELIMELER.indexOf(o)}" aria-label="Dinle">🔊</button></div>`;
-    }).join("")}</div>`).join("")}
+    }).join("")}</div></div>`).join("")}
     <h2>🌀 Fiil tabloları</h2>
     ${FIILLER.map((f, i) => `<div class="kart fiil-mini">${fiilTablosu(i, false)}</div>`).join("")}`;
 }
@@ -421,6 +422,9 @@ function ayarPenceresi() {
     <button class="ayar-satir" data-is="efektac"><span>Ses efektleri</span><b>${D.efekt ? "Açık" : "Kapalı"}</b></button>
     <button class="ayar-satir" data-is="yavasac"><span>Konuşma hızı</span><b>${D.yavas ? "Yavaş" : "Normal"}</b></button>
     ${SR ? `<button class="ayar-satir" data-is="konusac"><span>Konuşma alıştırmaları</span><b>${D.konusma ? "Açık" : "Kapalı"}</b></button>` : ""}
+    <button class="ayar-satir" data-is="yedekal"><span>💾 Yedek al (dosya indir)</span><b>›</b></button>
+    <button class="ayar-satir" data-is="yedeksec"><span>📂 Yedeği geri yükle</span><b>›</b></button>
+    <input type="file" id="yedek-dosya" accept=".json,application/json" hidden>
     <button class="ayar-satir" data-is="test"><span>Seviye testini yeniden yap</span><b>›</b></button>
     <button class="ayar-satir tehlike" data-is="sifirla"><span>İlerlememi sıfırla</span><b>›</b></button>`);
 }
@@ -1112,6 +1116,13 @@ const EYLEMLER = {
   yazkontrol: () => yaziDegerlendir(false),
   yazatla: () => yaziDegerlendir(true),
   mikrofon: () => mikrofonAc(),
+  yedekal: () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(D)], { type: "application/json" }));
+    a.download = `pasoapaso-yedek-${tarihStr()}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+  },
+  yedeksec: () => document.getElementById("yedek-dosya").click(),
   konusatla: () => {
     // Bir saat boyunca konusma sorusu gelmesin; bu soru ceza almadan gecilir
     window.konusmaKapaliTa = Date.now() + 3600000;
@@ -1240,6 +1251,27 @@ ekran.addEventListener("click", e => {
   const i = el.dataset.is.indexOf(":");
   const [is, deger] = i < 0 ? [el.dataset.is, undefined] : [el.dataset.is.slice(0, i), el.dataset.is.slice(i + 1)];
   if (EYLEMLER[is]) EYLEMLER[is](deger, el, e);
+});
+// Sozlukte arama: yazdikca satirlari ve bos uniteleri gizle
+ekran.addEventListener("input", e => {
+  if (e.target.id !== "sozluk-ara") return;
+  const q = aksansiz(e.target.value);
+  ekran.querySelectorAll(".sozluk-unite").forEach(b => {
+    let gorunen = 0;
+    b.querySelectorAll(".kelime-satir").forEach(s => { const var_ = !q || s.dataset.ara.includes(q); s.hidden = !var_; gorunen += var_; });
+    b.hidden = !gorunen;
+  });
+});
+// Yedek dosyasini geri yukle
+ekran.addEventListener("change", async e => {
+  if (e.target.id !== "yedek-dosya" || !e.target.files[0]) return;
+  try {
+    const yeni = JSON.parse(await e.target.files[0].text());
+    if (!yeni || typeof yeni.kutu !== "object") throw new Error();
+    if (!confirm(`Yedekteki ${Object.keys(yeni.kutu).length} kayıt yüklenecek, şimdiki ilerlemenin yerine geçecek. Devam edilsin mi?`)) return;
+    D = Object.assign(BOS(), yeni); kaydet(); temaUygula(); sekmeGoster("bugun");
+    alert("Yedek yüklendi ✅");
+  } catch { alert("Bu dosya bir Paso a Paso yedeği değil."); }
 });
 ekran.addEventListener("keydown", e => {
   if (e.key === "Enter" && e.target.id === "yazi") { e.preventDefault(); yaziDegerlendir(false); }
