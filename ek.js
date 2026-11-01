@@ -165,7 +165,21 @@ const FIILLER = [
   ["ir", "gitmek", ["iba", "ibas", "iba", "íbamos", "ibais", "iban"], "imp"],
   ["ver", "görmek", ["veía", "veías", "veía", "veíamos", "veíais", "veían"], "imp"],
   ["tener", "sahip olmak", ["tenía", "tenías", "tenía", "teníamos", "teníais", "tenían"], "imp"],
-  ["estar", "olmak, bulunmak", ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"], "imp"]
+  ["estar", "olmak, bulunmak", ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"], "imp"],
+  ["hablar", "konuşmak", ["hablaré", "hablarás", "hablará", "hablaremos", "hablaréis", "hablarán"], "fut"],
+  ["comer", "yemek", ["comeré", "comerás", "comerá", "comeremos", "comeréis", "comerán"], "fut"],
+  ["vivir", "yaşamak", ["viviré", "vivirás", "vivirá", "viviremos", "viviréis", "vivirán"], "fut"],
+  ["ir", "gitmek", ["iré", "irás", "irá", "iremos", "iréis", "irán"], "fut"],
+  ["ser", "olmak", ["seré", "serás", "será", "seremos", "seréis", "serán"], "fut"],
+  ["estar", "olmak, bulunmak", ["estaré", "estarás", "estará", "estaremos", "estaréis", "estarán"], "fut"],
+  ["tener", "sahip olmak", ["tendré", "tendrás", "tendrá", "tendremos", "tendréis", "tendrán"], "futd"],
+  ["hacer", "yapmak", ["haré", "harás", "hará", "haremos", "haréis", "harán"], "futd"],
+  ["poder", "-ebilmek", ["podré", "podrás", "podrá", "podremos", "podréis", "podrán"], "futd"],
+  ["decir", "söylemek", ["diré", "dirás", "dirá", "diremos", "diréis", "dirán"], "futd"],
+  ["venir", "gelmek", ["vendré", "vendrás", "vendrá", "vendremos", "vendréis", "vendrán"], "futd"],
+  ["salir", "çıkmak", ["saldré", "saldrás", "saldrá", "saldremos", "saldréis", "saldrán"], "futd"],
+  ["saber", "bilmek", ["sabré", "sabrás", "sabrá", "sabremos", "sabréis", "sabrán"], "futd"],
+  ["querer", "istemek", ["querré", "querrás", "querrá", "querremos", "querréis", "querrán"], "futd"]
 ];
 
 const ZAMIRLER = [["yo", "ben"], ["tú", "sen"], ["él / ella", "o"], ["nosotros", "biz"], ["vosotros", "siz"], ["ellos / ellas", "onlar"]];
@@ -198,6 +212,36 @@ const FIIL_GRUPLARI = [
      ["Mi abuelo siempre contaba historias.", "Dedem hep hikâyeler anlatırdı.", "contaba", ["contó", "cuenta"]],
      ["Mientras leía, sonó el teléfono.", "Ben okurken telefon çaldı.", "sonó", ["sonaba", "suena"]],
      ["Antes vivíamos en Madrid.", "Eskiden Madrid'de yaşardık.", "vivíamos", ["viviremos", "vivir"]]
+   ]},
+  {"id": "fut", "ad": "Gelecek zaman (futuro)", "emoji": "🔮", "not": "Mastar + é, ás, á, emos, éis, án",
+   "uzun": "Futuro: ileride olacak şeyler. Türkçedeki -ecek gibi: konuşacağım, yiyeceğiz.\nÇok kolay: kök yok, mastarın tamamına ek gelir.\nBütün fiillerde aynı ekler: é, ás, á, emos, éis, án\nKonuşmada daha sık: ir a + mastar → voy a comer (yiyeceğim).\nİpucu kelimeler: mañana (yarın), la próxima semana (gelecek hafta).",
+   "cumleler": [
+     ["Mañana hablaré con mi jefe.", "Yarın patronumla konuşacağım.", "hablaré", ["hablé", "hablo"]],
+     ["El año que viene viviremos en Sevilla.", "Seneye Sevilla'da yaşayacağız.", "viviremos", ["vivimos", "vivíamos"]],
+     ["Esta noche voy a cocinar.", "Bu akşam yemek pişireceğim.", "voy", ["fui", "iba"]],
+     ["¿Irás a la fiesta el sábado?", "Cumartesi partiye gidecek misin?", "Irás", ["Fuiste", "Ibas"]],
+     ["Mañana estará nublado.", "Yarın hava bulutlu olacak.", "estará", ["estuvo", "estaba"]]
+   ]},
+  {"id": "futd", "ad": "Gelecek: düzensizler", "emoji": "🚀", "not": "tendré, haré, podré, diré, vendré…",
+   "uzun": "Bu fiillerde ekler aynı (é, ás, á, emos, éis, án), sadece kök değişir:\ntener → tendr-, venir → vendr-, salir → saldr-\npoder → podr-, saber → sabr-, querer → querr-\nhacer → har-, decir → dir-",
+   "cumleler": [
+     ["El lunes tendré un examen.", "Pazartesi sınavım olacak.", "tendré", ["tuve", "tengo"]],
+     ["Mañana haremos una fiesta.", "Yarın bir parti yapacağız.", "haremos", ["hicimos", "hacemos"]],
+     ["¿Vendrás a mi casa?", "Evime gelecek misin?", "Vendrás", ["Viniste", "Venías"]],
+     ["Te diré la verdad.", "Sana doğruyu söyleyeceğim.", "diré", ["dije", "decía"]],
+     ["No podremos salir esta noche.", "Bu akşam çıkamayacağız.", "podremos", ["pudimos", "podemos"]]
+   ]},
+  {"id": "nesne", "ad": "Nesne zamirleri", "emoji": "🎯", "zamirsiz": true, "not": "me, te, lo/la, le, nos, os, los/las",
+   "uzun": "Nesne zamirleri fiilden ÖNCE gelir: Te quiero = Seni seviyorum.\nme beni · te seni · lo onu (erkek/şey) · la onu (kadın/şey) · nos bizi · os sizi · los/las onları\nKime? sorusuna le / les: Le doy un libro = Ona bir kitap veriyorum.\nMastarda sona yapışabilir: Voy a llamarte = Seni arayacağım.",
+   "cumleler": [
+     ["Te quiero mucho.", "Seni çok seviyorum.", "Te", ["Me", "Lo"]],
+     ["¿Me ayudas, por favor?", "Bana yardım eder misin lütfen?", "Me", ["Te", "Nos"]],
+     ["Compré un libro y lo leí.", "Bir kitap aldım ve onu okudum.", "lo", ["la", "los"]],
+     ["Tengo una manzana. La como.", "Bir elmam var. Onu yiyorum.", "La", ["Lo", "Las"]],
+     ["Mis padres nos visitan los domingos.", "Annemler bizi pazarları ziyaret ediyor.", "nos", ["os", "los"]],
+     ["Le doy un regalo a mi madre.", "Anneme bir hediye veriyorum.", "Le", ["La", "Lo"]],
+     ["¿Las flores? Las compré ayer.", "Çiçekler mi? Onları dün aldım.", "Las", ["Los", "La"]],
+     ["Voy a llamarte mañana.", "Yarın seni arayacağım.", "llamarte", ["llamarme", "llamarlo"]]
    ]}
 ];
 

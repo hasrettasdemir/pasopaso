@@ -37,7 +37,7 @@ for (const u of UNITELER) {
 }
 for (const [mastar, tr, formlar, grup] of FIILLER) {
   // Simdiki zaman kimlikleri eski kayitlarla uyumlu kalsin; gecmis zamanlar grup adini da tasir
-  const on = ["pret", "pretd", "imp"].includes(grup) ? `${grup}:` : "";
+  const on = ["pret", "pretd", "imp", "fut", "futd"].includes(grup) ? `${grup}:` : "";
   formlar.forEach((es, i) => FORMLAR.push({ tur: "f", id: `f:${on}${mastar}:${i}`, es, i, mastar, tr, grup, formlar, zamir: ZAMIRLER[i] }));
 }
 // Dilbilgisi gruplarinin ornek cumleleri (pretérito / imperfecto karsilastirmasi)
@@ -45,7 +45,7 @@ for (const g of FIIL_GRUPLARI) {
   g.c = (g.cumleler || []).map(([es, tr, b, y]) => ({ tur: "c", id: `c:${g.id}:${es}`, es, tr, b, y }));
   g.c.forEach(o => { o.unite = { k: [], c: g.c }; CUMLELER.push(o); });
 }
-const ZAMAN_ADI = { pret: "pretérito", pretd: "pretérito", imp: "imperfecto" };
+const ZAMAN_ADI = { pret: "pretérito", pretd: "pretérito", imp: "imperfecto", fut: "gelecek", futd: "gelecek" };
 
 function cinsiyet(es) {
   if (/^(el|los) /.test(es)) return "m";
@@ -349,11 +349,13 @@ function cumleEkrani() {
     <h2>Fiil çekimi</h2>
     <div class="uniteler">${FIIL_GRUPLARI.map((g, i) => {
       const formlar = FORMLAR.filter(o => o.grup === g.id);
-      const n = formlar.filter(goruldu).length;
+      // Fiil tablosu olmayan grup (nesne zamirleri) ilerlemeyi cumlelerinden olcer
+      const olcu = formlar.length ? formlar : g.c;
+      const n = olcu.filter(goruldu).length;
       return `<button class="kart unite" data-is="fiil:${i}">
         <span class="simge">${g.emoji}</span>
-        <span class="bilgi"><b>${g.ad}</b><span class="alt">${FIILLER.filter(f => f[3] === g.id).map(f => f[0]).join(", ")}</span>
-          <span class="cubuk"><i style="width:${(100 * n) / formlar.length}%"></i></span></span>
+        <span class="bilgi"><b>${g.ad}</b><span class="alt">${FIILLER.filter(f => f[3] === g.id).map(f => f[0]).join(", ") || g.not}</span>
+          <span class="cubuk"><i style="width:${(100 * n) / (olcu.length || 1)}%"></i></span></span>
         <span class="ok">›</span></button>`;
     }).join("")}</div>
     <h2>Cümle üniteleri</h2>${uniteListesi("c", "cumle")}`;
@@ -761,7 +763,7 @@ function adimIcerik(a) {
         <div class="kart tanitim"><div class="buyuk-emoji" style="font-size:64px">${a.g.emoji}</div>
           <div class="es" style="font-size:26px">${a.g.ad}</div>
           <div class="ipucu">💡 ${(a.g.uzun || a.g.not).split("\n").join("<br>")}</div>
-          <div class="zamirler">${ZAMIRLER.map(([es, tr]) => `<span><b>${es}</b> ${tr}</span>`).join("")}</div></div>`;
+          ${a.g.zamirsiz ? "" : `<div class="zamirler">${ZAMIRLER.map(([es, tr]) => `<span><b>${es}</b> ${tr}</span>`).join("")}</div>`}</div>`;
     case "tablo":
       return `<p class="soru-baslik">Tabloya bak, dokununca okunur</p><div class="kart">${fiilTablosu(a.fi, true)}</div>`;
     case "fiilsec":
@@ -883,7 +885,7 @@ function dersBitti() {
     D.kutu[id] = { b, t: dogru ? simdi + ARALIK_GUN[b] * GUN - 3600000 : simdi };
   }
   // Fiil dersinde tablosu gosterilen ama sorulmayan formlar da "goruldu" sayilsin ki tekrar gelsin
-  for (const a of ders.adimlar) if (a.tip === "tablo") for (const o of FORMLAR.filter(f => f.mastar === FIILLER[a.fi][0])) if (!goruldu(o)) D.kutu[o.id] = { b: 1, t: simdi + GUN };
+  for (const a of ders.adimlar) if (a.tip === "tablo") for (const o of FORMLAR.filter(f => f.mastar === FIILLER[a.fi][0] && f.grup === FIILLER[a.fi][3])) if (!goruldu(o)) D.kutu[o.id] = { b: 1, t: simdi + GUN };
   const kusursuz = ders.toplam >= 5 && ders.dogru === ders.toplam;
   xpEkle(5 + (kusursuz ? 5 : 0));
   D.dersSayisi++;
