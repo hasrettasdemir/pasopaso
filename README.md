@@ -51,7 +51,7 @@ Zorluk merdiveni: kutu 0-1 seçmeli ve görselli; 2 açıklama, dinleme, harf di
 Yazarken aksan, artikel ya da tek harf hatası doğru sayılır ve not düşülür (Duolingo gibi).
 
 **Oyunlaştırma:** her doğru cevap 2 XP (5'li seride 3), ders sonu 5 XP, hatasız ders +5.
-Günlük hedef 20/40/80/120 XP (Ayarlar). Gün serisi, son 7 gün şeridi, 12 rozet, maskot Toro, konfeti ve kısa ses efektleri.
+Günlük hedef 20/40/80/120 XP (Ayarlar). Gün serisi, son 7 gün şeridi, 12 rozet, maskot Vulpes (tilki), konfeti ve kısa ses efektleri.
 Telefonda "hareketi azalt" açıksa animasyonlar kapanır.
 
 ## Veri kaynakları

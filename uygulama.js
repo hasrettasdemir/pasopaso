@@ -244,10 +244,35 @@ function sekmeGoster(ad) {
   window.scrollTo(0, 0);
 }
 
+// Maskot Vulpes (tilki). ruh: "normal" (göz kırpar), "sevinc" (zıplar, kollar havada), "uzgun"
+function tilki(ruh = "normal", boy = 56) {
+  const goz = ruh === "sevinc"
+    ? `<path d="M41 56 q5 -7 10 0 M69 56 q5 -7 10 0" fill="none" stroke="#3B2A20" stroke-width="3" stroke-linecap="round"/>`
+    : `<g class="goz"><circle cx="46" cy="55" r="4.5" fill="#3B2A20"/><circle cx="74" cy="55" r="4.5" fill="#3B2A20"/>
+       <circle cx="47.5" cy="53.5" r="1.4" fill="#fff"/><circle cx="75.5" cy="53.5" r="1.4" fill="#fff"/></g>`
+      + (ruh === "uzgun" ? `<path d="M39 49 Q44 44 51 45 M81 49 Q76 44 69 45" stroke="#5A3A2A" stroke-width="2.5" stroke-linecap="round"/>` : "");
+  const agiz = { sevinc: `<path d="M53 81 Q60 92 67 81 Z" fill="#C8505A"/>`,
+    uzgun: `<path d="M55 86 Q60 81 65 86" fill="none" stroke="#3B2A20" stroke-width="2" stroke-linecap="round"/>`,
+    normal: `<path d="M55 82 Q60 86 65 82" fill="none" stroke="#3B2A20" stroke-width="2" stroke-linecap="round"/>` }[ruh];
+  const kol = ruh === "sevinc" ? "M41 100 Q31 90 27 79 M79 100 Q89 90 93 79" : "M41 100 Q35 110 39 117 M79 100 Q85 110 81 117";
+  return `<svg class="tilki ${ruh}" width="${boy}" height="${boy * 1.08}" viewBox="0 0 120 130" aria-hidden="true">
+    <g class="kuyruk"><path d="M76 116 Q112 118 110 84 Q108 70 98 66 Q104 96 74 104 Z" fill="#E8853D"/>
+      <path d="M98 66 Q108 70 110 84 Q104 78 97 76 Z" fill="#FFF4E6"/></g>
+    <ellipse cx="60" cy="108" rx="24" ry="19" fill="#E8853D"/><ellipse cx="60" cy="112" rx="14" ry="12" fill="#FFF4E6"/>
+    <path d="${kol}" fill="none" stroke="#E8853D" stroke-width="8" stroke-linecap="round"/>
+    <path d="M30 42 L35 8 L56 30 Z M90 42 L85 8 L64 30 Z" fill="#E8853D"/>
+    <path d="M36 34 L38 15 L50 29 Z M84 34 L82 15 L70 29 Z" fill="#5A3A2A"/>
+    <path d="M24 52 Q24 26 60 26 Q96 26 96 52 Q96 68 80 78 L60 90 L40 78 Q24 68 24 52 Z" fill="#E8853D"/>
+    <path d="M26 58 Q42 60 52 72 L60 90 L40 78 Q28 70 26 58 Z M94 58 Q78 60 68 72 L60 90 L80 78 Q92 70 94 58 Z" fill="#FFF4E6"/>
+    <path d="M46 92 L60 99 L74 92 L70 98 L60 103 L50 98 Z" fill="#C8505A"/>
+    <ellipse cx="38" cy="68" rx="5" ry="3" fill="#F29BA0" opacity=".5"/><ellipse cx="82" cy="68" rx="5" ry="3" fill="#F29BA0" opacity=".5"/>
+    ${goz}<ellipse cx="60" cy="77" rx="5" ry="3.5" fill="#3B2A20"/>${agiz}</svg>`;
+}
+
 function karsilama() {
   return `<div class="karsilama">
-    <div class="buyuk-emoji zipla">🐂</div>
-    <h1>¡Hola! Ben Toro</h1>
+    <div class="karsilama-tilki">${tilki("sevinc", 130)}</div>
+    <h1>¡Hola! Ben Vulpes</h1>
     <p class="alt">İspanyolca yolculuğunda sana eşlik edeceğim. Önce seviyeni ölçelim: bildiğini işaretle,
       bilmediğinde <b>Bilmiyorum</b>'a bas. Bildiğin üniteleri atlarız.</p>
     <button class="dugme" data-is="test">Seviyemi ölç (3 dakika)</button>
@@ -296,7 +321,7 @@ function bugunEkrani() {
   const [es, tr] = rastgele(TORO);
   return `
     <div class="baslik-satir">
-      <div class="toro"><span class="toro-yuz">🐂</span><span class="toro-balon"><b>${es}</b> ${tr}</span></div>
+      <div class="toro"><span class="toro-yuz">${tilki("normal", 56)}</span><span class="toro-balon"><b>${es}</b> ${tr}</span></div>
       <button class="ayar-dugme" data-is="ayarlar" aria-label="Ayarlar">⚙️</button>
     </div>
     <div class="kart hedef-kart">
@@ -819,7 +844,8 @@ function cevapla(dogruMu, aciklama, not) {
 function panelGoster(tur, mesaj, aciklama, dugme) {
   const p = document.createElement("div");
   p.className = `alt-panel ${tur}`;
-  p.innerHTML = `<div>${mesaj ? `<div class="mesaj">${mesaj}</div>` : ""}${aciklama ? `<div class="aciklama">${aciklama}</div>` : ""}
+  const yuz = tur === "dogru" ? "sevinc" : tur === "yanlis" ? "uzgun" : "";
+  p.innerHTML = `${yuz ? `<div class="panel-tilki">${tilki(yuz, 58)}</div>` : ""}<div>${mesaj ? `<div class="mesaj">${mesaj}</div>` : ""}${aciklama ? `<div class="aciklama">${aciklama}</div>` : ""}
     <button class="dugme" data-is="devam">${dugme}</button></div>`;
   ekran.appendChild(p);
 }
@@ -870,7 +896,7 @@ function bitisEkrani({ emoji, baslik, satirlar, dugmeler }) {
     </div>
     ${hedefYeni ? `<div class="kart kutlama">🎯 <b>Günlük hedef tamam!</b> ¡Increíble!</div>` : ""}
     ${yeniRozet.map(r => `<div class="kart kutlama yeni-rozet"><span>${r[1]}</span><div><b>Yeni rozet: ${r[2]}</b><small>${r[3]}</small></div></div>`).join("")}
-    <div class="toro bitis-toro"><span class="toro-yuz">🐂</span><span class="toro-balon"><b>${es}</b> ${tr}</span></div>
+    <div class="toro bitis-toro"><span class="toro-yuz">${tilki(!ders || !ders.toplam || ders.dogru / ders.toplam >= 0.6 ? "sevinc" : "normal", 96)}</span><span class="toro-balon"><b>${es}</b> ${tr}</span></div>
     ${dugmeler || `<button class="dugme" data-is="bitir">Tamam</button>`}</div>`;
   ders = null;
 }
