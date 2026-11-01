@@ -373,7 +373,7 @@ function hikayeEkrani() {
       const puan = D.hikaye[h.id];
       return `<button class="kart unite ${acik ? "" : "kilitli"}" data-is="${acik ? "hikayeoku" : "kilit"}:${i}">
         <span class="simge">${acik ? h.emoji : "🔒"}</span>
-        <span class="bilgi"><b>${h.ad}</b><span class="alt">${acik
+        <span class="bilgi"><b>${h.ad}</b> <span class="seviye-etiket">${h.seviye || "A1"}</span><span class="alt">${acik
           ? (puan != null ? `${"⭐".repeat(puan)}${"☆".repeat(h.sorular.length - puan)} · tekrar oku` : `${h.satirlar.filter(s => s[0] !== "?").length} satır · yeni`)
           : `Önce "${UNITELER[h.gerekli].ad}" ünitesinden 5 kelime öğren`}</span></span>
         <span class="ok">›</span></button>`;
