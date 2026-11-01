@@ -143,7 +143,29 @@ const FIILLER = [
   ["ir", "gitmek", ["voy", "vas", "va", "vamos", "vais", "van"], "duz"],
   ["querer", "istemek", ["quiero", "quieres", "quiere", "queremos", "queréis", "quieren"], "duz"],
   ["hacer", "yapmak", ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"], "duz"],
-  ["dormir", "uyumak", ["duermo", "duermes", "duerme", "dormimos", "dormís", "duermen"], "duz"]
+  ["dormir", "uyumak", ["duermo", "duermes", "duerme", "dormimos", "dormís", "duermen"], "duz"],
+  ["hablar", "konuşmak", ["hablé", "hablaste", "habló", "hablamos", "hablasteis", "hablaron"], "pret"],
+  ["trabajar", "çalışmak", ["trabajé", "trabajaste", "trabajó", "trabajamos", "trabajasteis", "trabajaron"], "pret"],
+  ["comer", "yemek", ["comí", "comiste", "comió", "comimos", "comisteis", "comieron"], "pret"],
+  ["beber", "içmek", ["bebí", "bebiste", "bebió", "bebimos", "bebisteis", "bebieron"], "pret"],
+  ["vivir", "yaşamak", ["viví", "viviste", "vivió", "vivimos", "vivisteis", "vivieron"], "pret"],
+  ["escribir", "yazmak", ["escribí", "escribiste", "escribió", "escribimos", "escribisteis", "escribieron"], "pret"],
+  ["ir", "gitmek (ser de aynı)", ["fui", "fuiste", "fue", "fuimos", "fuisteis", "fueron"], "pretd"],
+  ["tener", "sahip olmak", ["tuve", "tuviste", "tuvo", "tuvimos", "tuvisteis", "tuvieron"], "pretd"],
+  ["estar", "olmak, bulunmak", ["estuve", "estuviste", "estuvo", "estuvimos", "estuvisteis", "estuvieron"], "pretd"],
+  ["hacer", "yapmak", ["hice", "hiciste", "hizo", "hicimos", "hicisteis", "hicieron"], "pretd"],
+  ["poder", "-ebilmek", ["pude", "pudiste", "pudo", "pudimos", "pudisteis", "pudieron"], "pretd"],
+  ["decir", "söylemek", ["dije", "dijiste", "dijo", "dijimos", "dijisteis", "dijeron"], "pretd"],
+  ["venir", "gelmek", ["vine", "viniste", "vino", "vinimos", "vinisteis", "vinieron"], "pretd"],
+  ["querer", "istemek", ["quise", "quisiste", "quiso", "quisimos", "quisisteis", "quisieron"], "pretd"],
+  ["hablar", "konuşmak", ["hablaba", "hablabas", "hablaba", "hablábamos", "hablabais", "hablaban"], "imp"],
+  ["comer", "yemek", ["comía", "comías", "comía", "comíamos", "comíais", "comían"], "imp"],
+  ["vivir", "yaşamak", ["vivía", "vivías", "vivía", "vivíamos", "vivíais", "vivían"], "imp"],
+  ["ser", "olmak", ["era", "eras", "era", "éramos", "erais", "eran"], "imp"],
+  ["ir", "gitmek", ["iba", "ibas", "iba", "íbamos", "ibais", "iban"], "imp"],
+  ["ver", "görmek", ["veía", "veías", "veía", "veíamos", "veíais", "veían"], "imp"],
+  ["tener", "sahip olmak", ["tenía", "tenías", "tenía", "teníamos", "teníais", "tenían"], "imp"],
+  ["estar", "olmak, bulunmak", ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"], "imp"]
 ];
 
 const ZAMIRLER = [["yo", "ben"], ["tú", "sen"], ["él / ella", "o"], ["nosotros", "biz"], ["vosotros", "siz"], ["ellos / ellas", "onlar"]];
@@ -153,7 +175,30 @@ const FIIL_GRUPLARI = [
   {"id": "er", "ad": "-er fiilleri", "emoji": "🍽️", "not": "Kök + o, es, e, emos, éis, en"},
   {"id": "ir", "ad": "-ir fiilleri", "emoji": "🏡", "not": "Kök + o, es, e, imos, ís, en"},
   {"id": "ser", "ad": "ser ve estar", "emoji": "🪞", "not": "İkisi de 'olmak'. ser kalıcı (kim, ne), estar geçici (nerede, nasıl)"},
-  {"id": "duz", "ad": "Düzensizler", "emoji": "🌀", "not": "Kurala uymaz, ezberlenir: tengo, voy, quiero, hago, duermo"}
+  {"id": "duz", "ad": "Düzensizler", "emoji": "🌀", "not": "Kurala uymaz, ezberlenir: tengo, voy, quiero, hago, duermo"},
+  {"id": "pret", "ad": "Geçmiş: düzenli (pretérito)", "emoji": "⏮️", "not": "Bitmiş, tek seferlik olay",
+   "uzun": "Pretérito: geçmişte olup bitmiş, tek seferlik olaylar. Türkçedeki -dı gibi: yedim, gittim.\n-ar: é, aste, ó, amos, asteis, aron\n-er / -ir: í, iste, ió, imos, isteis, ieron\nİpucu kelimeler: ayer (dün), anoche (dün gece), el año pasado (geçen yıl).",
+   "cumleler": [
+     ["Ayer comí paella.", "Dün paella yedim.", "comí", ["comía", "como"]],
+     ["Anoche vimos una película.", "Dün gece bir film izledik.", "vimos", ["veíamos", "vemos"]],
+     ["Ella habló con el profesor.", "O öğretmenle konuştu.", "habló", ["hablo", "hablaba"]]
+   ]},
+  {"id": "pretd", "ad": "Geçmiş: düzensizler", "emoji": "🌪️", "not": "fui, tuve, estuve, hice, dije…",
+   "uzun": "En sık kullanılan fiiller pretéritoda düzensizdir, ezberlenir.\nDikkat: ser ve ir aynı çekilir: fui = oldum ya da gittim, anlam cümleden çıkar.\nBu fiillerde vurgu işareti yoktur: tuve, hice, dije, vino.",
+   "cumleler": [
+     ["El año pasado fui a México.", "Geçen yıl Meksika'ya gittim.", "fui", ["iba", "voy"]],
+     ["Ayer estuve en casa todo el día.", "Dün bütün gün evdeydim.", "estuve", ["estoy", "estaré"]],
+     ["¿Qué hiciste el fin de semana?", "Hafta sonu ne yaptın?", "hiciste", ["haces", "harás"]]
+   ]},
+  {"id": "imp", "ad": "Geçmiş: alışkanlık (imperfecto)", "emoji": "🕰️", "not": "Eskiden yapardım, -yordu",
+   "uzun": "İmperfecto: geçmişte süregelen, alışkanlık olan ya da betimlenen durumlar. Türkçedeki -ırdı / -yordu gibi: oynardım, yağıyordu.\n-ar: aba, abas, aba, ábamos, abais, aban\n-er / -ir: ía, ías, ía, íamos, íais, ían\nSadece 3 düzensiz: ser (era), ir (iba), ver (veía).\nKısa kural: tek olay → pretérito; arka plan ya da alışkanlık → imperfecto.",
+   "cumleler": [
+     ["Cuando era pequeño, jugaba en el parque.", "Küçükken parkta oynardım.", "jugaba", ["jugué", "juego"]],
+     ["De niña, tenía un perro.", "Küçükken bir köpeğim vardı.", "tenía", ["tuve", "tengo"]],
+     ["Mi abuelo siempre contaba historias.", "Dedem hep hikâyeler anlatırdı.", "contaba", ["contó", "cuenta"]],
+     ["Mientras leía, sonó el teléfono.", "Ben okurken telefon çaldı.", "sonó", ["sonaba", "suena"]],
+     ["Antes vivíamos en Madrid.", "Eskiden Madrid'de yaşardık.", "vivíamos", ["viviremos", "vivir"]]
+   ]}
 ];
 
 // Dokununca anlami gorunen kelimeler (kelime listesinde ve fiil tablosunda olmayanlar).

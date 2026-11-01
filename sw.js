@@ -3,7 +3,7 @@
 // (ilk acilisi bekletmesin diye). Calinan ses de aninda kaydedilir.
 // Uygulama dosyalari: once internetten (guncel kalsin), yoksa kayittan. Sesler: once kayittan.
 // Icerik degisince SURUM bir artirilir (yayinla.sh bunu kendisi yapar).
-const SURUM = "paso-v7";
+const SURUM = "paso-v8";
 importScripts("ses/liste.js");
 const DOSYALAR = ["./", "index.html", "stil.css", "veri.js", "veri-a1.js", "veri-a2.js", "veri-b1.js", "ek.js", "uygulama.js",
   "manifest.json", "ses/liste.js", "simge-180.png", "simge-192.png", "simge-512.png"];

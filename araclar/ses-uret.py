@@ -63,6 +63,11 @@ def metinler():
         for i, f in enumerate(formlar):
             ekle(ad(f), f)
             ekle(ad(f"{ZAMIR_SES[i]} {f}"), f"{ZAMIR_SES[i]} {f}")
+    for g in ek_veri("FIIL_GRUPLARI"):
+        for c in g.get("cumleler", []):
+            ekle(ad(c[0]), c[0])
+            for p in parcalar(c[0]):
+                ekle(ad(p), p)
     for h in ek_veri("HIKAYELER"):
         for n, (kim, metin, _) in enumerate(h["satirlar"]):
             if kim == "?":
