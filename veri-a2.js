@@ -34,6 +34,8 @@ UNITELER.push(
       ["El vuelo sale a las diez.", "Uçuş saat onda kalkıyor.", "vuelo", ["país", "río"]],
       ["Me gusta mucho viajar.", "Seyahat etmeyi çok severim.", "viajar", ["viajo", "viaje"]],
       ["España es un país muy bonito.", "İspanya çok güzel bir ülke.", "país", ["isla", "montaña"]],
+      ["Perdí mi pasaporte en el aeropuerto.", "Pasaportumu havalimanında kaybettim.", "pasaporte", ["billete", "equipaje"]],
+      ["Reservamos una habitación doble.", "Çift kişilik bir oda ayırttık.", "habitación", ["maleta", "playa"]],
     ],
   },
   {
@@ -67,6 +69,8 @@ UNITELER.push(
       ["Tome una pastilla cada ocho horas.", "Her sekiz saatte bir hap alın.", "cada", ["todos", "una"]],
       ["¿Qué te duele?", "Neren ağrıyor?", "duele", ["dueles", "duelo"]],
       ["Cuídate mucho.", "Kendine çok iyi bak.", "Cuídate", ["Cuido", "Cuidarse"]],
+      ["Tengo que ir al dentista mañana.", "Yarın dişçiye gitmem lazım.", "dentista", ["farmacia", "médico"]],
+      ["Esta pastilla es para el dolor de estómago.", "Bu hap mide ağrısı için.", "pastilla", ["receta", "fiebre"]],
     ],
   },
   {
@@ -101,6 +105,8 @@ UNITELER.push(
       ["Vamos al cine este fin de semana.", "Bu hafta sonu sinemaya gidelim.", "semana", ["mes", "año"]],
       ["Esta película es muy divertida.", "Bu film çok eğlenceli.", "divertida", ["divertido", "aburrida"]],
       ["Nado en la piscina.", "Havuzda yüzüyorum.", "Nado", ["Nada", "Nadar"]],
+      ["Los sábados juego al tenis con mi hermana.", "Cumartesileri kız kardeşimle tenis oynarım.", "tenis", ["piscina", "partido"]],
+      ["Nuestro equipo ganó el partido.", "Takımımız maçı kazandı.", "ganó", ["perdió", "jugó"]],
     ],
   },
   {
@@ -134,6 +140,8 @@ UNITELER.push(
       ["Apaga la luz, por favor.", "Işığı kapat, lütfen.", "Apaga", ["Enciende", "Apago"]],
       ["Te llamo esta noche.", "Bu akşam seni ararım.", "llamo", ["llama", "llamas"]],
       ["Voy a descargar la aplicación.", "Uygulamayı indireceğim.", "descargar", ["descargo", "descarga"]],
+      ["Olvidé la contraseña del ordenador.", "Bilgisayarın şifresini unuttum.", "contraseña", ["pantalla", "batería"]],
+      ["Te envío la foto por correo.", "Fotoğrafı sana e-postayla gönderiyorum.", "correo", ["pantalla", "teclado"]],
     ],
   },
   {
@@ -167,6 +175,8 @@ UNITELER.push(
       ["Lo siento, estoy muy ocupado.", "Üzgünüm, çok meşgulüm.", "ocupado", ["libre", "tranquilo"]],
       ["Mi compañero es muy simpático.", "İş arkadaşım çok sevimli.", "compañero", ["compañera", "compañeros"]],
       ["Tienes que firmar el contrato.", "Sözleşmeyi imzalaman gerek.", "firmar", ["firmas", "firmo"]],
+      ["La reunión empieza a las diez.", "Toplantı saat onda başlıyor.", "reunión", ["oficina", "jefe"]],
+      ["Mi jefe está de vacaciones esta semana.", "Patronum bu hafta tatilde.", "jefe", ["compañero", "cliente"]],
     ],
   },
   {
@@ -200,6 +210,8 @@ UNITELER.push(
       ["Soy vegetariana, no como carne.", "Vejetaryenim, et yemem.", "vegetariana", ["vegetarianos", "carne"]],
       ["¿Puedo probar el vino?", "Şarabı tadabilir miyim?", "probar", ["pruebo", "prueba"]],
       ["Dejamos una propina.", "Bahşiş bırakıyoruz.", "propina", ["receta", "patata"]],
+      ["¿Nos trae la carta, por favor?", "Menüyü getirir misiniz lütfen?", "carta", ["cuenta", "propina"]],
+      ["De postre quiero un helado.", "Tatlı olarak dondurma istiyorum.", "postre", ["primero", "bebida"]],
     ],
   },
   {
@@ -233,6 +245,8 @@ UNITELER.push(
       ["Es una persona muy amable.", "O çok nazik bir insan.", "amable", ["amables", "egoísta"]],
       ["No seas perezoso.", "Tembel olma.", "seas", ["eres", "estás"]],
       ["Mi abuelo es fuerte y valiente.", "Dedem güçlü ve cesur.", "valiente", ["valientes", "débil"]],
+      ["Mi hermano es muy tímido con la gente nueva.", "Kardeşim yeni insanlara karşı çok utangaç.", "tímido", ["simpático", "perezoso"]],
+      ["Ella es trabajadora y muy honesta.", "O çalışkan ve çok dürüst.", "honesta", ["egoísta", "tímida"]],
     ],
   },
   {
@@ -266,6 +280,8 @@ UNITELER.push(
       ["Mi vecino siempre me ayuda.", "Komşum bana hep yardım eder.", "ayuda", ["ayudo", "ayudas"]],
       ["Hay mucha gente en la calle.", "Sokakta çok insan var.", "gente", ["persona", "niño"]],
       ["Mis tíos viven en Sevilla.", "Amcamlar Sevilla'da yaşıyor.", "tíos", ["tío", "primos"]],
+      ["Mis padres se casaron hace treinta años.", "Annemle babam otuz yıl önce evlendi.", "casaron", ["conocieron", "separaron"]],
+      ["Quedo con mis amigos los viernes.", "Cuma günleri arkadaşlarımla buluşurum.", "amigos", ["vecinos", "novios"]],
     ],
   },
   {
@@ -299,6 +315,8 @@ UNITELER.push(
       ["Riego las plantas cada día.", "Bitkileri her gün sularım.", "Riego", ["Riega", "Regar"]],
       ["Tengo que ordenar mi habitación.", "Odamı toplamam lazım.", "ordenar", ["ordeno", "ordena"]],
       ["Hay mucho polvo en la mesa.", "Masada çok toz var.", "polvo", ["basura", "escalera"]],
+      ["Hoy me toca lavar los platos.", "Bugün bulaşık yıkama sırası bende.", "platos", ["camas", "ropa"]],
+      ["Hay que sacar la basura cada noche.", "Her akşam çöpü çıkarmak gerekiyor.", "basura", ["cama", "aspiradora"]],
     ],
   },
   {
@@ -332,6 +350,8 @@ UNITELER.push(
       ["Creo que tienes razón.", "Bence haklısın.", "Creo", ["Cree", "Creer"]],
       ["Pareces cansado.", "Yorgun görünüyorsun.", "Pareces", ["Parezco", "Parece"]],
       ["Voy a intentar otra vez.", "Bir kez daha deneyeceğim.", "intentar", ["intento", "intenta"]],
+      ["No encuentro mis llaves.", "Anahtarlarımı bulamıyorum.", "encuentro", ["pierdo", "busco"]],
+      ["Siempre olvido el nombre de mi vecino.", "Komşumun adını hep unutuyorum.", "olvido", ["recuerdo", "encuentro"]],
     ],
   },
   {
@@ -365,6 +385,8 @@ UNITELER.push(
       ["Llegué tarde al trabajo.", "İşe geç kaldım.", "tarde", ["temprano", "pronto"]],
       ["Vivimos juntos desde hace un año.", "Bir yıldır birlikte yaşıyoruz.", "juntos", ["solo", "casi"]],
       ["Vuelvo enseguida.", "Hemen dönüyorum.", "enseguida", ["anoche", "antes"]],
+      ["Ya he comido, gracias.", "Ben yedim bile, teşekkürler.", "Ya", ["Nunca", "Todavía"]],
+      ["Todavía no he terminado.", "Henüz bitirmedim.", "Todavía", ["Nunca", "Pronto"]],
     ],
   },
   {
@@ -398,6 +420,8 @@ UNITELER.push(
       ["¿Cuál es tu dirección?", "Adresin ne?", "dirección", ["cola", "documento"]],
       ["Hay mucha cola en el banco.", "Bankada uzun kuyruk var.", "cola", ["sello", "paquete"]],
       ["Vivo en el centro de la ciudad.", "Şehir merkezinde yaşıyorum.", "centro", ["ayuntamiento", "aparcamiento"]],
+      ["Tengo que ir a correos a enviar un paquete.", "Paket göndermek için postaneye gitmem lazım.", "correos", ["banco", "peluquería"]],
+      ["Abrí una cuenta en el banco.", "Bankada bir hesap açtım.", "cuenta", ["tarjeta", "carta"]],
     ],
   },
   {
@@ -431,6 +455,8 @@ UNITELER.push(
       ["Me gusta pasear por el campo.", "Kırda yürüyüş yapmayı severim.", "campo", ["lago", "desierto"]],
       ["La contaminación es un problema grave.", "Kirlilik ciddi bir sorun.", "contaminación", ["selva", "arena"]],
       ["Hay que proteger la naturaleza.", "Doğayı korumak gerek.", "proteger", ["protejo", "protege"]],
+      ["Desde la montaña se ve el mar.", "Dağdan deniz görünüyor.", "montaña", ["isla", "flor"]],
+      ["El bosque está lleno de árboles altos.", "Orman yüksek ağaçlarla dolu.", "bosque", ["lago", "desierto"]],
     ],
   },
   {
@@ -464,6 +490,8 @@ UNITELER.push(
       ["Aunque está lejos, voy a pie.", "Uzak olmasına rağmen yürüyerek gidiyorum.", "Aunque", ["Porque", "Si"]],
       ["Trabajo de nueve a cinco.", "Dokuzdan beşe çalışıyorum.", "a", ["de", "en"]],
       ["Vivo aquí desde 2020.", "2020'den beri burada yaşıyorum.", "desde", ["hasta", "durante"]],
+      ["No fui a la fiesta porque estaba cansado.", "Yorgun olduğum için partiye gitmedim.", "porque", ["pero", "aunque"]],
+      ["Quiero ir, pero no tengo tiempo.", "Gitmek istiyorum ama vaktim yok.", "pero", ["porque", "si"]],
     ],
   },
 );

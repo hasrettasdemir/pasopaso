@@ -32,6 +32,8 @@ UNITELER.push(
       ["Es evidente que está mintiendo.", "Yalan söylediği belli.", "mintiendo", ["mentira", "miente"]],
       ["¿Qué opinas sobre este tema?", "Bu konu hakkında ne düşünüyorsun?", "opinas", ["opino", "opinión"]],
       ["Depende del precio.", "Fiyata bağlı.", "Depende", ["Dependo", "Dependes"]],
+      ["En mi opinión, es una buena idea.", "Bence bu iyi bir fikir.", "opinión", ["acuerdo", "duda"]],
+      ["Dudo que sea verdad.", "Bunun doğru olduğundan şüpheliyim.", "Dudo", ["Creo", "Pienso"]],
     ],
   },
   {
@@ -65,6 +67,8 @@ UNITELER.push(
       ["El partido se emite en directo.", "Maç canlı yayınlanıyor.", "directo", ["actual", "público"]],
       ["Han publicado un artículo sobre el clima.", "İklim hakkında bir makale yayımladılar.", "publicado", ["publican", "publicar"]],
       ["No creas todo lo que dicen los anuncios.", "Reklamların söylediği her şeye inanma.", "creas", ["crees", "creo"]],
+      ["Leo las noticias cada mañana.", "Her sabah haberleri okurum.", "noticias", ["anuncios", "canales"]],
+      ["El periodista hizo una entrevista al ministro.", "Gazeteci bakanla röportaj yaptı.", "entrevista", ["noticia", "portada"]],
     ],
   },
   {
@@ -98,6 +102,8 @@ UNITELER.push(
       ["Si estudias, aprobarás.", "Çalışırsan geçersin.", "aprobarás", ["aprobaste", "aprobar"]],
       ["Me han dado una beca.", "Bana burs verdiler.", "beca", ["matrícula", "carrera"]],
       ["Hablo tres idiomas.", "Üç dil konuşuyorum.", "idiomas", ["idioma", "niveles"]],
+      ["Ella aprobó todos los exámenes.", "Bütün sınavları geçti.", "aprobó", ["suspendió", "estudió"]],
+      ["Quiero estudiar en la universidad de Salamanca.", "Salamanca Üniversitesi'nde okumak istiyorum.", "universidad", ["asignatura", "beca"]],
     ],
   },
   {
@@ -131,6 +137,8 @@ UNITELER.push(
       ["El plazo termina el viernes.", "Süre cuma günü doluyor.", "plazo", ["presupuesto", "objetivo"]],
       ["Trabaja como autónomo.", "Serbest çalışıyor.", "autónomo", ["sindicato", "negocio"]],
       ["Nuestro objetivo es crecer.", "Hedefimiz büyümek.", "objetivo", ["fracaso", "beneficio"]],
+      ["Envié mi currículum a cinco empresas.", "Özgeçmişimi beş şirkete gönderdim.", "currículum", ["sueldo", "contrato"]],
+      ["Este mes me subieron el sueldo.", "Bu ay maaşıma zam yaptılar.", "sueldo", ["horario", "puesto"]],
     ],
   },
   {
@@ -164,6 +172,8 @@ UNITELER.push(
       ["Es una costumbre muy antigua.", "Çok eski bir gelenek.", "costumbre", ["problema", "derecho"]],
       ["El gobierno ha aprobado una nueva ley.", "Hükümet yeni bir yasa çıkardı.", "ley", ["solución", "sociedad"]],
       ["Trabajo como voluntario los domingos.", "Pazarları gönüllü çalışıyorum.", "voluntario", ["ciudadano", "gobierno"]],
+      ["La pobreza es un problema grave.", "Yoksulluk ciddi bir sorun.", "pobreza", ["igualdad", "ley"]],
+      ["Muchos jóvenes no encuentran trabajo.", "Birçok genç iş bulamıyor.", "jóvenes", ["mayores", "ciudadanos"]],
     ],
   },
   {
@@ -197,6 +207,8 @@ UNITELER.push(
       ["El clima de esta región es seco.", "Bu bölgenin iklimi kuru.", "clima", ["recurso", "consumo"]],
       ["Hay que reducir el consumo de plástico.", "Plastik tüketimini azaltmak gerek.", "reducir", ["reduzco", "reduce"]],
       ["La energía solar es sostenible.", "Güneş enerjisi sürdürülebilir.", "sostenible", ["sostenibles", "seca"]],
+      ["Debemos reciclar el plástico.", "Plastiği geri dönüştürmeliyiz.", "reciclar", ["contaminar", "gastar"]],
+      ["La contaminación del aire es peligrosa.", "Hava kirliliği tehlikeli.", "contaminación", ["energía", "basura"]],
     ],
   },
   {
@@ -230,6 +242,8 @@ UNITELER.push(
       ["Es un actor muy famoso.", "O çok ünlü bir oyuncu.", "famoso", ["famosa", "famosos"]],
       ["El público aplaudió al final.", "Seyirciler sonunda alkışladı.", "aplaudió", ["aplaude", "aplaudir"]],
       ["Me interesa mucho la historia.", "Tarihe çok ilgi duyuyorum.", "interesa", ["interesan", "intereso"]],
+      ["El museo tiene una exposición de Picasso.", "Müzede bir Picasso sergisi var.", "exposición", ["obra", "novela"]],
+      ["Esta novela tiene un final sorprendente.", "Bu romanın şaşırtıcı bir sonu var.", "novela", ["pintura", "escultura"]],
     ],
   },
   {
@@ -263,6 +277,8 @@ UNITELER.push(
       ["Hay que tener paciencia.", "Sabırlı olmak gerek.", "paciencia", ["memoria", "belleza"]],
       ["Esto no tiene sentido.", "Bunun bir anlamı yok.", "sentido", ["sentidos", "futuro"]],
       ["Cometí un error.", "Bir hata yaptım.", "error", ["errores", "riesgos"]],
+      ["La libertad es muy importante para mí.", "Özgürlük benim için çok önemli.", "libertad", ["verdad", "esperanza"]],
+      ["La amistad es más importante que el dinero.", "Dostluk paradan daha önemli.", "amistad", ["libertad", "verdad"]],
     ],
   },
   {
@@ -296,6 +312,8 @@ UNITELER.push(
       ["No te preocupes.", "Merak etme.", "preocupes", ["preocupas", "preocupar"]],
       ["Me di cuenta de mi error.", "Hatamın farkına vardım.", "cuenta", ["cuento", "cuentas"]],
       ["Siempre se queja de todo.", "Her şeyden hep şikâyet eder.", "queja", ["quejo", "quejas"]],
+      ["Conseguí entradas para el concierto.", "Konser için bilet buldum.", "Conseguí", ["Perdí", "Olvidé"]],
+      ["Tienes que mantener la calma.", "Sakin kalmalısın.", "mantener", ["perder", "evitar"]],
     ],
   },
   {
@@ -329,6 +347,8 @@ UNITELER.push(
       ["Te llamaré en cuanto llegue.", "Varır varmaz seni arayacağım.", "llegue", ["llego", "llegué"]],
       ["A lo mejor vengo el sábado.", "Belki cumartesi gelirim.", "mejor", ["menos", "bien"]],
       ["Me gusta la fruta, sobre todo las fresas.", "Meyveyi severim, özellikle çileği.", "todo", ["toda", "todas"]],
+      ["Aunque llueva, iremos a la playa.", "Yağmur yağsa da plaja gideceğiz.", "Aunque", ["Porque", "Si"]],
+      ["Sin embargo, no dijo nada.", "Yine de hiçbir şey söylemedi.", "embargo", ["cambio", "duda"]],
     ],
   },
   {
@@ -362,6 +382,8 @@ UNITELER.push(
       ["Ella está embarazada de tres meses.", "O üç aylık hamile.", "embarazada", ["embarazado", "enferma"]],
       ["Respira hondo.", "Derin nefes al.", "Respira", ["Respiro", "Respirar"]],
       ["Se ha recuperado muy rápido.", "Çok çabuk iyileşti.", "recuperado", ["recupera", "recuperar"]],
+      ["Me hicieron un análisis de sangre.", "Bana kan tahlili yaptılar.", "sangre", ["piel", "hueso"]],
+      ["Tiene alergia al polen.", "Polene alerjisi var.", "alergia", ["gripe", "herida"]],
     ],
   },
   {
@@ -395,6 +417,8 @@ UNITELER.push(
       ["Me han puesto una multa.", "Bana para cezası kestiler.", "multa", ["firma", "solicitud"]],
       ["Necesitas cita previa.", "Önceden randevu alman gerekiyor.", "previa", ["previo", "nueva"]],
       ["¿Cuáles son los requisitos?", "Şartlar neler?", "requisitos", ["requisito", "trámite"]],
+      ["Necesito renovar el pasaporte.", "Pasaportumu yenilemem lazım.", "renovar", ["firmar", "perder"]],
+      ["Firme aquí, por favor.", "Lütfen buraya imzalayın.", "Firme", ["Pague", "Llene"]],
     ],
   },
   {
@@ -428,6 +452,8 @@ UNITELER.push(
       ["Avísame cuando llegues.", "Vardığında bana haber ver.", "llegues", ["llegué", "llegar"]],
       ["¿Me puedes dar un consejo?", "Bana bir tavsiye verebilir misin?", "consejo", ["broma", "ruido"]],
       ["Hay mucho ruido en la calle.", "Sokakta çok gürültü var.", "ruido", ["voz", "silencio"]],
+      ["Te dejé un mensaje en el contestador.", "Telesekretere sana mesaj bıraktım.", "mensaje", ["llamada", "carta"]],
+      ["Hablamos por videollamada cada domingo.", "Her pazar görüntülü konuşuruz.", "videollamada", ["mensaje", "correo"]],
     ],
   },
   {
@@ -461,6 +487,8 @@ UNITELER.push(
       ["Quiero devolver estos zapatos.", "Bu ayakkabıları iade etmek istiyorum.", "devolver", ["devuelvo", "devuelve"]],
       ["Tengo muchas deudas.", "Çok borcum var.", "deudas", ["deuda", "ahorros"]],
       ["El país está en crisis.", "Ülke krizde.", "crisis", ["economía", "inversión"]],
+      ["Los precios suben cada año.", "Fiyatlar her yıl artıyor.", "precios", ["sueldos", "impuestos"]],
+      ["Ahorro un poco de dinero cada mes.", "Her ay biraz para biriktiriyorum.", "Ahorro", ["Gasto", "Pierdo"]],
     ],
   },
 );

@@ -457,7 +457,7 @@ UNITELER.push(
       ["Yo también hablo inglés.", "Ben de İngilizce konuşuyorum.", "también", ["tampoco", "nunca"]],
       ["Nunca bebo café por la noche.", "Geceleri asla kahve içmem.", "Nunca", ["Siempre", "También"]],
       ["¿Té o café?", "Çay mı kahve mi?", "o", ["y", "pero"]],
-      ["¿Dónde está el baño?", "Tuvalet nerede?", "Dónde", ["Cuándo", "Quién"]],
+      ["¿Cuándo es tu cumpleaños?", "Doğum günün ne zaman?", "Cuándo", ["Dónde", "Quién"]],
       ["¿Por qué estudias español?", "Neden İspanyolca öğreniyorsun?", "Por qué", ["Cuánto", "Cómo"]],
     ],
   },
