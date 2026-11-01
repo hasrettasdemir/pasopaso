@@ -33,6 +33,8 @@ UNITELER.push(
       ["Es la primera vez que vengo.", "İlk kez geliyorum.", "primera", ["primero", "uno"]],
       ["Hay mil personas en el concierto.", "Konserde bin kişi var.", "mil", ["cien", "millón"]],
       ["Dame la mitad, por favor.", "Yarısını ver, lütfen.", "mitad", ["mitades", "número"]],
+      ["Mi hermano tiene veinte años.", "Erkek kardeşim yirmi yaşında.", "veinte", ["doce", "dos"]],
+      ["La clase empieza a las nueve y media.", "Ders dokuz buçukta başlıyor.", "media", ["medio", "mitad"]],
     ],
   },
   {
@@ -66,6 +68,8 @@ UNITELER.push(
       ["La vaca da leche.", "İnek süt verir.", "vaca", ["abeja", "serpiente"]],
       ["El elefante es muy grande.", "Fil çok büyük.", "grande", ["pequeño", "rápido"]],
       ["Me gustan los animales.", "Hayvanları severim.", "gustan", ["gusta", "gusto"]],
+      ["El gato duerme en el sofá.", "Kedi kanepede uyuyor.", "gato", ["perro", "pájaro"]],
+      ["Mi abuela tiene tres gallinas.", "Ninemin üç tavuğu var.", "gallinas", ["vacas", "caballos"]],
     ],
   },
   {
@@ -99,6 +103,8 @@ UNITELER.push(
       ["Ella tiene el pelo largo.", "Onun saçları uzun.", "largo", ["larga", "corto"]],
       ["Me duelen los pies.", "Ayaklarım ağrıyor.", "duelen", ["duele", "dolor"]],
       ["Abre la boca, por favor.", "Ağzını aç, lütfen.", "boca", ["nariz", "oreja"]],
+      ["Me lavo las manos antes de comer.", "Yemekten önce ellerimi yıkarım.", "manos", ["pies", "orejas"]],
+      ["Mi hijo tiene los ojos azules.", "Oğlumun gözleri mavi.", "ojos", ["dientes", "brazos"]],
     ],
   },
   {
@@ -132,6 +138,8 @@ UNITELER.push(
       ["¿Dónde están mis gafas?", "Gözlüğüm nerede?", "gafas", ["guantes", "calcetines"]],
       ["Ella lleva un vestido rojo.", "O kırmızı bir elbise giyiyor.", "vestido", ["falda", "camisa"]],
       ["Necesito unos calcetines.", "Bana birkaç çorap lazım.", "Necesito", ["Necesita", "Necesitas"]],
+      ["En verano llevo pantalones cortos.", "Yazın şort giyerim.", "pantalones", ["abrigos", "guantes"]],
+      ["Estos zapatos son muy cómodos.", "Bu ayakkabılar çok rahat.", "zapatos", ["calcetines", "sombreros"]],
     ],
   },
   {
@@ -165,6 +173,8 @@ UNITELER.push(
       ["Quiero ser bombero.", "İtfaiyeci olmak istiyorum.", "ser", ["estar", "soy"]],
       ["El camarero trae la comida.", "Garson yemeği getiriyor.", "camarero", ["abogado", "ingeniero"]],
       ["¿En qué trabajas?", "Ne iş yapıyorsun?", "trabajas", ["trabajo", "trabaja"]],
+      ["Mi madre es enfermera en un hospital.", "Annem bir hastanede hemşire.", "enfermera", ["cocinera", "profesora"]],
+      ["El camarero nos trae la cuenta.", "Garson bize hesabı getiriyor.", "camarero", ["médico", "policía"]],
     ],
   },
   {
@@ -198,6 +208,8 @@ UNITELER.push(
       ["Compro pan en la tienda.", "Dükkândan ekmek alıyorum.", "tienda", ["iglesia", "estación"]],
       ["El museo está cerrado hoy.", "Müze bugün kapalı.", "cerrado", ["cerrada", "abierto"]],
       ["Hay un hotel cerca de la playa.", "Plajın yakınında bir otel var.", "cerca", ["lejos", "dentro"]],
+      ["La farmacia está al lado del banco.", "Eczane bankanın yanında.", "farmacia", ["iglesia", "playa"]],
+      ["Vamos al museo el domingo.", "Pazar günü müzeye gidiyoruz.", "museo", ["mercado", "hospital"]],
     ],
   },
   {
@@ -231,6 +243,8 @@ UNITELER.push(
       ["Mi hermano conduce un taxi.", "Kardeşim taksi kullanıyor.", "conduce", ["conduzco", "conducir"]],
       ["El avión es más rápido que el tren.", "Uçak trenden daha hızlı.", "rápido", ["lento", "rápida"]],
       ["Vamos a pie, está cerca.", "Yürüyerek gidelim, yakın.", "pie", ["coche", "tren"]],
+      ["Voy al trabajo en metro.", "İşe metroyla gidiyorum.", "metro", ["avión", "barco"]],
+      ["El autobús llega tarde otra vez.", "Otobüs yine geç geliyor.", "autobús", ["coche", "tren"]],
     ],
   },
   {
@@ -264,6 +278,8 @@ UNITELER.push(
       ["El cielo está lleno de nubes.", "Gökyüzü bulutlarla dolu.", "nubes", ["nube", "sol"]],
       ["¿Qué tiempo hace hoy?", "Bugün hava nasıl?", "tiempo", ["hora", "día"]],
       ["Estamos a veinte grados.", "Hava yirmi derece.", "grados", ["grado", "años"]],
+      ["Hoy hace mucho sol.", "Bugün çok güneşli.", "sol", ["frío", "viento"]],
+      ["En invierno nieva en la montaña.", "Kışın dağda kar yağar.", "nieva", ["llueve", "hace"]],
     ],
   },
   {
@@ -297,6 +313,8 @@ UNITELER.push(
       ["Los niños están aburridos.", "Çocuklar sıkılmış.", "aburridos", ["aburrido", "aburrida"]],
       ["Pedro está contento con su trabajo.", "Pedro işinden memnun.", "contento", ["contenta", "contentos"]],
       ["Tengo miedo de los perros.", "Köpeklerden korkarım.", "miedo", ["amor", "beso"]],
+      ["Estoy muy cansado hoy.", "Bugün çok yorgunum.", "cansado", ["contento", "nervioso"]],
+      ["Ella está triste porque su perro está enfermo.", "Köpeği hasta olduğu için üzgün.", "triste", ["feliz", "cansada"]],
     ],
   },
   {
@@ -330,6 +348,8 @@ UNITELER.push(
       ["¿Puedes repetir, por favor?", "Tekrar edebilir misin, lütfen?", "repetir", ["repito", "repite"]],
       ["El lápiz está en la mochila.", "Kalem sırt çantasında.", "mochila", ["pizarra", "clase"]],
       ["Aprendo una palabra nueva.", "Yeni bir kelime öğreniyorum.", "palabra", ["palabras", "libro"]],
+      ["Necesito un lápiz y un cuaderno.", "Bir kalem ve bir deftere ihtiyacım var.", "cuaderno", ["libro", "examen"]],
+      ["Mañana tenemos un examen de español.", "Yarın İspanyolca sınavımız var.", "examen", ["clase", "deberes"]],
     ],
   },
   {
@@ -363,6 +383,8 @@ UNITELER.push(
       ["La tienda está cerrada.", "Dükkân kapalı.", "cerrada", ["cerrado", "abierta"]],
       ["Quiero un kilo de tomates.", "Bir kilo domates istiyorum.", "kilo", ["euro", "precio"]],
       ["¿Qué talla necesitas?", "Hangi bedene ihtiyacın var?", "talla", ["caja", "oferta"]],
+      ["Las tiendas cierran a las nueve.", "Dükkânlar dokuzda kapanıyor.", "cierran", ["abren", "cuestan"]],
+      ["Quiero pagar con tarjeta.", "Kartla ödemek istiyorum.", "tarjeta", ["efectivo", "dinero"]],
     ],
   },
   {
@@ -399,6 +421,8 @@ UNITELER.push(
       ["Mi abuelo es viejo, pero fuerte.", "Dedem yaşlı ama güçlü.", "viejo", ["vieja", "joven"]],
       ["La botella está vacía.", "Şişe boş.", "vacía", ["vacío", "llena"]],
       ["Tus manos están sucias.", "Ellerin kirli.", "sucias", ["sucio", "limpias"]],
+      ["Esta casa es grande pero vieja.", "Bu ev büyük ama eski.", "vieja", ["nueva", "pequeña"]],
+      ["El café está muy caliente.", "Kahve çok sıcak.", "caliente", ["frío", "barato"]],
     ],
   },
   {
@@ -433,6 +457,8 @@ UNITELER.push(
       ["Yo también hablo inglés.", "Ben de İngilizce konuşuyorum.", "también", ["tampoco", "nunca"]],
       ["Nunca bebo café por la noche.", "Geceleri asla kahve içmem.", "Nunca", ["Siempre", "También"]],
       ["¿Té o café?", "Çay mı kahve mi?", "o", ["y", "pero"]],
+      ["¿Dónde está el baño?", "Tuvalet nerede?", "Dónde", ["Cuándo", "Quién"]],
+      ["¿Por qué estudias español?", "Neden İspanyolca öğreniyorsun?", "Por qué", ["Cuánto", "Cómo"]],
     ],
   },
   {
@@ -467,6 +493,8 @@ UNITELER.push(
       ["La leche está en la nevera.", "Süt buzdolabında.", "nevera", ["horno", "sartén"]],
       ["Para el desayuno tomo café.", "Kahvaltıda kahve içerim.", "desayuno", ["cena", "postre"]],
       ["Necesito un cuchillo.", "Bir bıçağa ihtiyacım var.", "cuchillo", ["cuchara", "botella"]],
+      ["Necesito un cuchillo para cortar el pan.", "Ekmeği kesmek için bir bıçağa ihtiyacım var.", "cuchillo", ["vaso", "plato"]],
+      ["Pon los platos en la mesa.", "Tabakları masaya koy.", "platos", ["sillas", "vasos"]],
     ],
   },
   {
@@ -503,6 +531,8 @@ UNITELER.push(
       ["Busco mis llaves.", "Anahtarlarımı arıyorum.", "Busco", ["Busca", "Buscar"]],
       ["No sé la respuesta.", "Cevabı bilmiyorum.", "sé", ["sabe", "saber"]],
       ["¿Puedes cerrar la ventana?", "Pencereyi kapatabilir misin?", "cerrar", ["cierras", "abrir"]],
+      ["Después del desayuno me lavo los dientes.", "Kahvaltıdan sonra dişlerimi fırçalarım.", "desayuno", ["cena", "almuerzo"]],
+      ["Por la noche me ducho y me acuesto.", "Akşam duş alıp yatıyorum.", "acuesto", ["levanto", "despierto"]],
     ],
   },
   {
@@ -536,6 +566,8 @@ UNITELER.push(
       ["Sigue todo recto.", "Dümdüz devam et.", "recto", ["derecha", "esquina"]],
       ["La farmacia está entre el banco y el hotel.", "Eczane bankayla otelin arasında.", "entre", ["detrás", "delante"]],
       ["Cruza la calle en el semáforo.", "Karşıya trafik ışığından geç.", "Cruza", ["Cruzo", "Cruzar"]],
+      ["Gira a la derecha en el semáforo.", "Trafik ışığında sağa dön.", "derecha", ["izquierda", "recto"]],
+      ["El hotel está cerca de la estación.", "Otel istasyona yakın.", "cerca", ["lejos", "detrás"]],
     ],
   },
 );
